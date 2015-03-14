@@ -1,12 +1,13 @@
 #!/bin/bash
 DATADIR=/home/pi/.cloudhive
-for i in `ls $DATADIR`
+for i in `ls -t $DATADIR`
 do
     if test -f "$DATADIR/$i" 
     then
+       echo "processing $DATADIR/$i"
        `cat "$DATADIR/$i"`
        if [ $? -ge 1 ]; then
-          exit $?
+          continue
        else
           rm -rf "$DATADIR/$i"
        fi

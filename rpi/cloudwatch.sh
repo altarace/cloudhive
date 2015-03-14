@@ -14,8 +14,8 @@ RES=`sudo python /home/pi/cloudhive/rpi/ht.py`
 TEMP=`echo $RES|awk '{print $1}'`
 HUM=`echo $RES|awk '{print $2}'`
 #random weight simulator
-RLBS=`sudo /home/pi/hx711/hx711 7200`
-LBS=$(($RLBS/90000))
+RLBS=`sudo /home/pi/hx711/hx711 223045`
+LBS=$(($RLBS*-1*3215/10000000))
 PID=`grep -Po '^Serial\s*:\s*\K[[:xdigit:]]{16}' /proc/cpuinfo`
 DATAS=\"${DATUM},${TEMP},${HUM},${PID},$LBS\"
 echo ${DATAS}
