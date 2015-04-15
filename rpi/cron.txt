@@ -1,0 +1,8 @@
+USER:
+
+#EVEN */2 * * * * /home/pi/cloudhive/rpi/cloudwatch.sh
+#ODD 1-59/2 * * * * /home/pi/cloudhive/rpi/cloudwatch.sh
+45 10 * * * /usr/bin/timeout 2700 /home/pi/update.sh
+45 * * * * /usr/bin/timeout 2700 /home/pi/cloudhive/rpi/resend.sh
+ROOT:
+*/5 * * * * /usr/bin/wifi-on.sh

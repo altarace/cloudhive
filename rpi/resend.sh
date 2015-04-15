@@ -1,4 +1,10 @@
 #!/bin/bash
+what=`basename $0`
+for p in `ps h -o pid -C $what`; do
+        if [ $p != $$ ]; then
+                exit 0
+        fi
+done
 DATADIR=/home/pi/.cloudhive
 for i in `ls -t $DATADIR`
 do
