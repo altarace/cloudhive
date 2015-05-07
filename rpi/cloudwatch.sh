@@ -26,6 +26,13 @@ PID=`grep -Po '^Serial\s*:\s*\K[[:xdigit:]]{16}' /proc/cpuinfo`
 DATAS=\"${DATUM},${TEMP},${HUM},${PID},$LBS\"
 echo ${DATAS}
 
+if [ $LBS -ge 1 ]; then
+echo $LBS>weight.txt
+else
+LBS=`cat weight.txt`
+fi
+
+
 /usr/local/bin/aws cloudwatch put-metric-data --metric-name ${TEMPVAR} \
 --namespace ${NAMESPACE} --value $TEMP --timestamp $DATUM --dimensions \
 Item=${PID}
