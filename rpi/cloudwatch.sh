@@ -27,9 +27,9 @@ DATAS=\"${DATUM},${TEMP},${HUM},${PID},$LBS\"
 echo ${DATAS}
 
 if [ $LBS -ge 1 ]; then
-echo $LBS>weight.txt
+echo $LBS>/home/pi/weight.txt
 else
-LBS=`cat weight.txt`
+LBS=`cat /home/pi/weight.txt`
 fi
 
 
