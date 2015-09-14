@@ -1,0 +1,4 @@
+#!/bin/sh
+aws s3 cp s3://HIVE_BUCKET/startup.sh /home/ec2-user/startup.sh
+chmod +x /home/ec2-user/startup.sh
+sh /home/ec2-user/startup.sh
